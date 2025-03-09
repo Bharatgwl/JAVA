@@ -95,11 +95,11 @@ Neither can be instantiated directly.
 Both define behavior that is not meant to change across instances.
 Dissimilarities:
 #### 1. Abstract Class:
-```java
 Used as a blueprint for other classes.
 Can contain both abstract (unimplemented) and concrete (implemented) methods.
 Can be inherited by subclasses.
 
+```java
 abstract class AbstractBase {
     abstract void show(); // Abstract method (no implementation)
 
