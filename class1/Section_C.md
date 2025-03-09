@@ -143,12 +143,15 @@ public class Main {
     }
 }
 ```
-1. Advantages & Disadvantages:
-2. Feature	Abstract Class	Static Class Alternative
-3. Flexibility	High	Low
-4. Inheritance	Supported	Not supported
-5. Instantiation	Not allowed	Not allowed
-5. Use case	Base class for derived classes	Utility functions
+##### Advantages & Disadvantages:
+| Feature	     | Abstract Class              | Static Class Alternative |
+|----------------|-----------------------------|--------------------------|
+| Flexibility	 | High	                       | Low                      |  
+| Inheritance	 | Supported	               | Not supported            |  
+| Instantiation  | Not allowed	               | Not allowed              |  
+| Use case	Base | class for derived classes   | Utility functions        |  
+
+
 ## 5. Super and Final Keyword
 
 The **super** keyword is used to refer to the parent class methods and constructors, while the **final** keyword is used to prevent further inheritance or method overriding.
