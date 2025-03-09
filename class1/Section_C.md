@@ -36,8 +36,8 @@ public class Main {
 
 
 
-This example demonstrates multi-level inheritance where `Child` class inherits from `Parent`, which in turn inherits from `Grandparent`.
 ```
+This example demonstrates multi-level inheritance where `Child` class inherits from `Parent`, which in turn inherits from `Grandparent`.
 
 
 ## 2. Operations, Precedence, and Associativity
@@ -54,14 +54,13 @@ public class Main {
     }
 }
 
-
-
-Precedence and associativity help in evaluating expressions correctly. Multiplication (`*`) has higher precedence than addition (`+`), so `3 * 2` is computed first, then `5` is added to it.
 ```
 
 
+Precedence and associativity help in evaluating expressions correctly. Multiplication (`*`) has higher precedence than addition (`+`), so `3 * 2` is computed first, then `5` is added to it.
+
+
 ## 3. I/O Stream Operations
-```Java
 
 In Java, input and output operations are handled using Scanner (for input) and System.out.println
 
@@ -69,6 +68,7 @@ In Java, input and output operations are handled using Scanner (for input) and S
 
 In Java, input and output operations are handled using Scanner (for input) and System.out.println
 
+```Java
 
 import java.util.Scanner; // Import Scanner class
 
@@ -88,7 +88,6 @@ Scanner scanner = new Scanner(System.in); // Create Scanner object
 
 ```
 ##  4  Abstract Class vs. Static Class in Java
-```java
 In Java, abstract classes and static classes serve different purposes but share some similarities.
 
 Similarities:
@@ -96,6 +95,7 @@ Neither can be instantiated directly.
 Both define behavior that is not meant to change across instances.
 Dissimilarities:
 #### 1. Abstract Class:
+```java
 Used as a blueprint for other classes.
 Can contain both abstract (unimplemented) and concrete (implemented) methods.
 Can be inherited by subclasses.
@@ -124,10 +124,10 @@ public class Main {
 }
 ```
 #### 2. Static Class Alternative (Utility Class):
-```java
 Java does not support static classes directly, but we can achieve a similar effect using a final class with all static members.
 Cannot be inherited.
 Used for utility functions (e.g., Math, Collections).
+```java
 
 final class StaticClass {
     private StaticClass() {} // Private constructor prevents instantiation
@@ -142,13 +142,13 @@ public class Main {
         StaticClass.display(); // Call without creating an instance
     }
 }
-Advantages & Disadvantages:
-Feature	Abstract Class	Static Class Alternative
-Flexibility	High	Low
-Inheritance	Supported	Not supported
-Instantiation	Not allowed	Not allowed
-Use case	Base class for derived classes	Utility functions
 ```
+1. Advantages & Disadvantages:
+2. Feature	Abstract Class	Static Class Alternative
+3. Flexibility	High	Low
+4. Inheritance	Supported	Not supported
+5. Instantiation	Not allowed	Not allowed
+5. Use case	Base class for derived classes	Utility functions
 ## 5. Super and Final Keyword
 
 The **super** keyword is used to refer to the parent class methods and constructors, while the **final** keyword is used to prevent further inheritance or method overriding.
