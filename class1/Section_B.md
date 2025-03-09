@@ -100,7 +100,7 @@ class Child extends Parent {
 ```
 
 ## 7. Design the interface concept explaining it with an example
-An **interface** in Java defines a contract that a class must follow. It only contains abstract methods (before Java 8) and cannot store implementation details.
+An **Interface** in Java programming language is defined as an abstract type used to specify the behavior of a class. An interface in Java is a blueprint of a behavior. A Java interface contains static constants and abstract methods.
 
 Characteristics:
 1. **Achieves Abstraction.**
