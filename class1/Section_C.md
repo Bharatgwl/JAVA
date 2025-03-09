@@ -5,39 +5,37 @@
 Inheritance is a mechanism in object-oriented programming where one class derives properties and behaviors from another class. Multi-level inheritance is a type of inheritance where a class is derived from another derived class.
 
 ### Example:
-```cpp
-#include <iostream>
-using namespace std;
 
+```Java
 class Grandparent {
-public:
     void grandparentMethod() {
-        cout << "This is the grandparent class." << endl;
+        System.out.println("This is the grandparent class.");
     }
-};
-
-class Parent : public Grandparent {
-public:
-    void parentMethod() {
-        cout << "This is the parent class." << endl;
-    }
-};
-
-class Child : public Parent {
-public:
-    void childMethod() {
-        cout << "This is the child class." << endl;
-    }
-};
-
-int main() {
-    Child obj;
-    obj.grandparentMethod();
-    obj.parentMethod();
-    obj.childMethod();
-    return 0;
 }
+
+class Parent extends Grandparent {
+    void parentMethod() {
+        System.out.println("This is the parent class.");
+    }
+}
+
+class Child extends Parent {
+    void childMethod() {
+        System.out.println("This is the child class.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        Child obj = new Child();
+        obj.grandparentMethod();
+        obj.parentMethod();
+        obj.childMethod();
+    }
+}
+
 ```
+
 This example demonstrates multi-level inheritance where `Child` class inherits from `Parent`, which in turn inherits from `Grandparent`.
 
 ---
@@ -47,15 +45,15 @@ This example demonstrates multi-level inheritance where `Child` class inherits f
 Operators in programming have precedence and associativity rules that determine the order in which expressions are evaluated. Here is an example:
 
 ### Example:
-```cpp
-#include <iostream>
-using namespace std;
 
-int main() {
-    int result = 5 + 3 * 2; // Multiplication has higher precedence than addition
-    cout << "Result: " << result << endl; // Output: 11
-    return 0;
+```Java
+public class Main {
+    public static void main(String[] args) {
+        int result = 5 + 3 * 2; // Multiplication has higher precedence than addition
+        System.out.println("Result: " + result); // Output: 11
+    }
 }
+
 ```
 
 Precedence and associativity help in evaluating expressions correctly. Multiplication (`*`) has higher precedence than addition (`+`), so `3 * 2` is computed first, then `5` is added to it.
@@ -64,79 +62,115 @@ Precedence and associativity help in evaluating expressions correctly. Multiplic
 
 ## 3. I/O Stream Operations
 
-Input and output operations are handled using `cin` and `cout` in C++.
+In Java, input and output operations are handled using Scanner (for input) and System.out.println
 
 ### Example:
-```cpp
-#include <iostream>
-using namespace std;
 
-int main() {
-    string name;
-    cout << "Enter your name: ";
-    cin >> name;
-    cout << "Hello, " << name << "!" << endl;
-    return 0;
+In Java, input and output operations are handled using Scanner (for input) and System.out.println
+
+````Java
+
+import java.util.Scanner; // Import Scanner class
+
+public class Main {
+public static void main(String[] args) {
+Scanner scanner = new Scanner(System.in); // Create Scanner object
+
+        System.out.print("Enter a number: ");
+        int number = scanner.nextInt(); // Read integer input
+
+        System.out.println("You entered: " + number);
+
+        scanner.close(); // Close scanner to free resources
+    }
+
 }
-```
 
 ---
 
-## 4. Abstract Class vs. Static Class
+Abstract Class vs. Static Class in Java
+In Java, abstract classes and static classes serve different purposes but share some similarities.
 
-An **abstract class** is a class that cannot be instantiated and typically contains at least one pure virtual function. A **static class** is a class that cannot be instantiated, and all its members are static.
+Similarities:
+Neither can be instantiated directly.
+Both define behavior that is not meant to change across instances.
+Dissimilarities:
+1. Abstract Class:
+Used as a blueprint for other classes.
+Can contain both abstract (unimplemented) and concrete (implemented) methods.
+Can be inherited by subclasses.
+Example:
 
-### Similarities:
-1. Both cannot be instantiated directly.
-2. Both are used to define behavior that should not change across instances.
+java
+Copy
+Edit
+abstract class AbstractBase {
+    abstract void show(); // Abstract method (no implementation)
 
-### Dissimilarities:
-1. **Abstract Class:**
-   - Used to provide a blueprint for derived classes.
-   - Can have both abstract (pure virtual) and concrete methods.
-   - Example:
-   ```cpp
-   class AbstractBase {
-   public:
-       virtual void show() = 0; // Pure virtual function
-   };
-   ```
+    void display() {
+        System.out.println("Concrete method in abstract class.");
+    }
+}
 
-2. **Static Class:**
-   - Used to hold utility functions that do not require an instance.
-   - Cannot be inherited.
-   - Example:
-   ```cpp
-   class StaticClass {
-   public:
-       static void display() {
-           cout << "Static method called." << endl;
-       }
-   };
-   ```
+class Derived extends AbstractBase {
+    @Override
+    void show() {
+        System.out.println("Implemented abstract method in Derived class.");
+    }
+}
 
-### Advantages & Disadvantages:
-| Feature          | Abstract Class | Static Class |
-|----------------|--------------|--------------|
-| Flexibility   | High         | Low          |
-| Inheritance   | Supported    | Not supported |
-| Instantiation | Not allowed  | Not allowed  |
-| Use case      | Base class for derived classes | Utility functions |
+public class Main {
+    public static void main(String[] args) {
+        Derived obj = new Derived();
+        obj.show();
+        obj.display();
+    }
+}
+2. Static Class Alternative (Utility Class):
+Java does not support static classes directly, but we can achieve a similar effect using a final class with all static members.
+Cannot be inherited.
+Used for utility functions (e.g., Math, Collections).
+Example:
 
----
+java
+Copy
+Edit
+final class StaticClass {
+    private StaticClass() {} // Private constructor prevents instantiation
+
+    static void display() {
+        System.out.println("Static method called.");
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        StaticClass.display(); // Call without creating an instance
+    }
+}
+Advantages & Disadvantages:
+Feature	Abstract Class	Static Class Alternative
+Flexibility	High	Low
+Inheritance	Supported	Not supported
+Instantiation	Not allowed	Not allowed
+Use case	Base class for derived classes	Utility functions
 
 ## 5. Super and Final Keyword
 
 The **super** keyword is used to refer to the parent class methods and constructors, while the **final** keyword is used to prevent further inheritance or method overriding.
 
 ### Similarities:
+
 1. Both are used in inheritance.
 2. Both help in maintaining the integrity of class behaviors.
 
 ### Dissimilarities:
+
 1. **Super Keyword:**
+
    - Calls parent class constructors or methods.
    - Example in Java:
+
    ```java
    class Parent {
        void display() {
@@ -149,7 +183,7 @@ The **super** keyword is used to refer to the parent class methods and construct
            System.out.println("Child class");
        }
    }
-   ```
+````
 
 2. **Final Keyword:**
    - Prevents method overriding or class inheritance.
@@ -163,30 +197,37 @@ The **super** keyword is used to refer to the parent class methods and construct
    ```
 
 ### Advantages & Disadvantages:
-| Feature          | Super Keyword | Final Keyword |
-|----------------|--------------|--------------|
-| Usage         | Calls parent class members | Prevents modification |
-| Flexibility   | High         | Low          |
-| Overriding   | Supported    | Restricted   |
+
+| Feature     | Super Keyword              | Final Keyword         |
+| ----------- | -------------------------- | --------------------- |
+| Usage       | Calls parent class members | Prevents modification |
+| Flexibility | High                       | Low                   |
+| Overriding  | Supported                  | Restricted            |
 
 ---
 
 ## 6. Multithreading and Exception Handling
 
 ### Multithreading:
+
 Multithreading allows multiple threads to run concurrently, improving performance.
 
 ### Exception Handling:
+
 Exception handling manages runtime errors to prevent program crashes.
 
 ### Similarities:
+
 1. Both improve program reliability and efficiency.
 2. Both involve handling multiple tasks in a structured way.
 
 ### Dissimilarities:
+
 1. **Multithreading:**
+
    - Deals with concurrent execution.
    - Example in Java:
+
    ```java
    class MyThread extends Thread {
        public void run() {
@@ -217,10 +258,11 @@ Exception handling manages runtime errors to prevent program crashes.
    ```
 
 ### Advantages & Disadvantages:
-| Feature          | Multithreading | Exception Handling |
-|----------------|--------------|--------------|
-| Performance   | High         | No impact    |
-| Complexity   | High         | Moderate     |
-| Use case    | Parallel processing | Error handling |
+
+| Feature     | Multithreading      | Exception Handling |
+| ----------- | ------------------- | ------------------ |
+| Performance | High                | No impact          |
+| Complexity  | High                | Moderate           |
+| Use case    | Parallel processing | Error handling     |
 
 ---
